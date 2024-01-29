@@ -9,17 +9,28 @@
   <body>
     <header>
         <img class="apollo" src="ApollowUknown1.png" alt="Apollo Unknown" />
-        <form id="madlibs">
-            <label
-              >Browse:
-              <input type="text" placeholder="browse" />
-            </label>
-            <button type="submit">Submit</button>
-          </form>
+        <div class="onboard_info">
+          ApolloUknown Start listening for free.
+        </div>
+                <label>
+                  <div class="searchBar">
+                  <input type="text" placeholder="Find artists you love" />
+                </label>
+                <button type="submit">Submit</button>
+                </div>
+            
     <nav>
         <a href="./signUp.HTML"> <button>Sign up now</button> </a>
     </nav>
     </header>
+    <main>
+        <ul class="tabs">
+            <li><a href="./forYou.HTML"><button type="submit"> For you</button></a></li>
+            <li><a href="./playlist.HTML"><button type="submit">Playlist</button></a></li>
+            <li><a href="./favorites.HTML"><button type="submit">Favorites</button></a></li>
+            <li><a href="./History.HTML"><button type="submit">History</button></a></li>
+            <li><a href="./likedSongs.HTML"><button type="submit">Liked Songs</button></a></li>
+          </ul>
         <nav>
             <div class="Don_Toli">
               <img src="download(1).jpeg" alt="Don Toli Album Cover" />
@@ -33,35 +44,33 @@
               <img src="images.jpeg" alt="Brandon Lake Album Cover" />
               <p>Talking to Jesus</p>
         </nav>
-      <h1>Start listening to newer artists.</h1>
-      <h2>Every station takes your input into its algorithm</h2>
-      <h3>
-        Listen all the time anywhere. Listen to Apollo Uknown on mobile devices,
-        desktop, whatever you can connect to the internet we will be there.
-      </h3>
     <script>
-    console.log("Page loaded");
-    const myForm = document.querySelector("#madlibs");
-    const responseParagraph = document.querySelector("#response")
-    myForm.addEventListener("submit", function(event){
+      console.log("page Loaded");
+      const emailForm = document.querySelector("#Email");
+      const responseParagraph = document.querySelector("#response");
+      emailForm.addEventListener("submit", function (event) {
         event.preventDefault();
-        alert("it was clicked");
-        const theForm = event.target;
-        console.log(theForm)
-        const myInput = theForm.querySelector('input');
-        console.log(myInput.value)
-        responseParagraph.innerHTML = myInput.value
-    })
+        alert("It was clicked.");
+        const newForm = event.target;
+        console.log(newForm);
+        const myInput = newForm.querySelector("input");
+        console.log(myInput.value);
+        responseParagraph.innerHTML = myInput.value;
+      });
     </script>
+    </form>
     </main>
   </body>
   <footer>
-    <ul>
-      <li>contact</li>
-      <li>support</li>
-      <li>careers</li>
-      <li>email list</li>
-      <li>help</li>
-    </ul>
+   <break></break>
+
+      <ul>
+        <li><a href="./Contact.HTML"><button type="submit"> contact</button></a></li>
+        <li>support</li>
+        <li>careers</li>
+        <li>email list</li>
+        <li>help</li>
+      </ul>
+      <p>© 2024 ApolloUknown Media, LLC, All Rights Reserved. Apollo are registered trademarks of ApolloUknown Media, LLC.</p>
   </footer>
 </html>

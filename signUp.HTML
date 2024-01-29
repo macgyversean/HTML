@@ -9,8 +9,33 @@
   <body>
     <header>
       <img class="apollo" src="ApollowUknown1.png" alt="Apollo Unknown" />
+      <div>
+        <ul class="tabs">
+          <li>
+            <a href="./forYou.HTML"><button type="submit">For you</button></a>
+          </li>
+          <li>
+            <a href="./playlist.HTML"
+              ><button type="submit">Playlist</button></a
+            >
+          </li>
+          <li>
+            <a href="./favorites.HTML"
+              ><button type="submit">Favorites</button></a
+            >
+          </li>
+          <li>
+            <a href="./History.HTML"><button type="submit">History</button></a>
+          </li>
+          <li>
+            <a href="./likedSongs.HTML"
+              ><button type="submit">Liked Songs</button></a
+            >
+          </li>
+        </ul>
+      </div>
       <p>
-        <a href="./home.HTML"> <button>Home</button> </a>
+        <a href="./website.HTML"> <button>Home</button> </a>
       </p>
     </header>
 
@@ -22,7 +47,7 @@
         </label>
         <button type="submit">Submit</button>
       </form>
-      <p id="response">Response will go here</p>
+      <p id="response"></p>
       <script>
         console.log("page Loaded");
         const emailForm = document.querySelector("#Email");
@@ -39,4 +64,21 @@
       </script>
     </main>
   </body>
+  <footer>
+    <break></break>
+
+    <ul>
+      <li>
+        <a href="./Contact.HTML"><button type="submit">contact</button></a>
+      </li>
+      <li>support</li>
+      <li>careers</li>
+      <li>email list</li>
+      <li>help</li>
+    </ul>
+    <p>
+      © 2024 ApolloUknown Media, LLC, All Rights Reserved. Apollo are registered
+      trademarks of ApolloUknown Media, LLC.
+    </p>
+  </footer>
 </html>

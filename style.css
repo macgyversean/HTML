@@ -14,20 +14,44 @@ header {
   width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
+  background: linear-gradient(89deg, #caf3ff 40%, #f0d3f5 75%);
+  border-radius: 54px;
 }
-.tabs{
+.tabs {
   display: flex;
   justify-content: left;
   flex-direction: column;
+  border: 3px solid #121212;
+  background-color: #120e11;
+  max-width: 195px;
+  border-radius: 37px;
 }
+
 main {
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
-button {
+.outsidebutt {
   flex-direction: row;
   max-height: 85px;
+  border-radius: 22px;
   background-color: transparent;
+}
+
+.selectors {
+  flex-direction: row;
+  max-height: 85px;
+  border-radius: 22px;
+  background-color: transparent;
+  border: transparent;
+  color: #a1b0b5;
+}
+#taskList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: wrap;
+  align-content: center;
+  align-items: center;
 }
 body {
   height: 100%;
@@ -41,17 +65,26 @@ footer li {
   display: inline;
 }
 .searchBar {
-  position: fixed; /* Fix the position at the top */
-  top: 0;
-  left: 0;
-  width: 100%; /* Ensure it spans the entire width */
-  background-color: transparent; /* Optional background color */
-  padding: 10px; /* Optional padding for visual appeal */
-  z-index: 100; /* Optional: Raise the bar above other elements */
+  position: fixed;
+  top: 48px;
+  left: 40vw;
+  width: 100%;
+  background-color: transparent;
+  padding: 10px;
+  z-index: 100;
 }
 
+.eagle {
+  display: flex;
+  width: 100%;
+}
+.johnjones {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
 .MobileSection {
-  width: 100%
+  width: 100%;
   margin-bottom: 2-1rem;
   padding-bottom: 30rem;
   margin-right: -2.5rem;
@@ -67,12 +100,12 @@ footer li {
   color: #000;
   background-color: #5453a8;
 }
-.onboard_info{
+.onboard_info {
   margin: 2rem 0;
   font-size: 1.4rem;
   text-align: center;
   opacity: 1;
-  transition: opacity .15s linear;
+  transition: opacity 0.15s linear;
 }
 .musicListener {
   display: flex;

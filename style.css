@@ -67,7 +67,7 @@ footer li {
 }
 .searchBar {
   position: fixed;
-  top: 48px;
+  top: 32px;
   left: 40vw;
   width: 100%;
   background-color: transparent;

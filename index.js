@@ -44,10 +44,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const { results } = data;
         console.log({ results });
         results.map(function (result) {
-          const { title } = result;
+          const { title, genre } = result;
           const albumTitle = document.createElement("p");
           albumTitle.textContent = title;
           list.appendChild(albumTitle);
+
+          const albumGenre = document.createElement("p");
+          albumGenre.textContent = genre;
+          list.appendChild(albumGenre);
         });
       });
   }

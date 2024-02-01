@@ -10,18 +10,18 @@ document.addEventListener("DOMContentLoaded", function () {
   SearchB.addEventListener("click", getReleases);
 
   // Get the input field
-  const input = document.getElementById("Searchb");
 
-  // Execute a function when the user presses a key on the keyboard
-  //   input.addEventListener("keypress", function (event) {
-  //     // If the user presses the "Enter" key on the keyboard
-  //     if (event.key === "Enter") {
-  //       // Cancel the default action, if needed
-  //       event.preventDefault();
-  //       // Trigger the button element with a click
-  //       document.getElementById("myBtn").click();
-  //     }
-  //   });
+  //   const input = document.getElementById("SearchB");
+  //   // Execute a function when the user presses a key on the keyboard
+  //     input.addEventListener("keypress", function (event) {
+  //       // If the user presses the "Enter" key on the keyboard
+  //       if (event.key === "Enter") {
+  //         // Cancel the default action, if needed
+  //         event.preventDefault();
+  //         // Trigger the button element with a click
+  //         document.getElementById("myBtn").click();
+  //       }
+  //     });
 
   function updateValue(e) {
     artistIdInput.textContent = e.target.value;
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(function (data) {
         const { results } = data;
         console.log({ results });
-        results.reverse().map(function (result) {
+        results.map(function (result) {
           const { title } = result;
           const albumTitle = document.createElement("p");
           albumTitle.textContent = title;

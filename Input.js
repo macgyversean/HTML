@@ -4,11 +4,18 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM Ready");
   const todoForm = document.querySelector("#todo");
 
-  todoForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const taskInput = this.querySelector('input[name="taskEntry"]');
-    generateList(taskInput);
+  todoForm.addEventListener("keypress", function (event) {
+    if (event.keyCode == 13) {
+      const taskInput = this.querySelector('input[name="taskEntry"]');
+      generateList(taskInput);
+    }
   });
+
+  // todoForm.addEventListener("submit", function (event) {
+  //   event.preventDefault();
+  //   const taskInput = this.querySelector('input[name="taskEntry"]');
+  //   generateList(taskInput);
+  // });
 
   function generateList(taskInput) {
     // get the list item

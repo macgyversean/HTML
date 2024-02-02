@@ -124,13 +124,25 @@ footer li {
   margin-top: 10px;
   aspect-ratio: 4/3;
 }
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 1200px;
+  width: 100%;
+}
+.wrapper h1,
+.wrapper h2 {
+  width: 100%;
+}
 
+/* 
 button:hover {
   color: #82ffc9;
   box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6),
     0 0 9px 3px rgba(27, 253, 156, 0.2);
-}
-
+} */
+/* 
 button:before {
   content: "";
   position: absolute;
@@ -146,11 +158,11 @@ button:before {
     rgba(27, 253, 156, 0.1) 60%,
     transparent 100%
   );
-}
+/* } 
 
 button:hover:before {
   transform: translateX(15em);
-}
+} */
 
 @media screen and (min-width: 320px) {
   main {

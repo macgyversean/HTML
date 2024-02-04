@@ -66,8 +66,8 @@ footer li {
   display: inline;
 }
 .searchBar {
-  position: fixed;
-  top: 32px;
+  position: absolute;
+  top: 49px;
   left: 40vw;
   width: 100%;
   background-color: transparent;
@@ -102,7 +102,7 @@ footer li {
   background-color: #5453a8;
 }
 .onboard_info {
-  margin: 2rem 0;
+  margin: 4rem 0;
   font-size: 1.4rem;
   text-align: center;
   opacity: 1;

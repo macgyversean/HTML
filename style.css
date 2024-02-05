@@ -38,7 +38,14 @@ main {
   border-radius: 22px;
   background-color: transparent;
 }
-
+.sidenav {
+  background-color: #120e11;
+  float: left;
+  left: 0rem;
+  top: 23rem;
+  border-radius: 46px;
+  margin-bottom: auto;
+}
 .selectors {
   flex-direction: row;
   max-height: 85px;

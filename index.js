@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const { results } = data;
         console.log({ results });
         const list = document.createElement("ul");
+
         console.log(root);
         // Append it to the #root
         root.appendChild(list);

@@ -9,40 +9,46 @@ document.addEventListener("DOMContentLoaded", function () {
   const lyrics1 = document.getElementById("lyrics1");
   artistName.addEventListener("input", ArtistName);
   lyrics1.addEventListener("input", LyricsFnc);
-  console.log(artistName);
-  console.log(lyrics1);
 
   function LyricsFnc(e) {
     lyrics1.textContent = e.target.value;
   }
-
+  console.log(LyricsFnc);
   function ArtistName(e) {
     artistName.textContent = e.target.value;
   }
+
   lyrs.appendChild(hello);
 
-  fetch("https://api.lyrics.ovh/v1/nf/hope", {
-    method: "get",
-    headers: {
-      "User-Agent": "SeanCarroll/3.0",
-    },
-  })
-    .then(function (response) {
-      return response.json();
+  function callUrl({ artistName, song }) {
+    console.log({ artistName });
+    console.log({ song });
+    const url = `https://api.lyrics.ovh/v1/${artistName}/${song}`;
+    fetch(url, {
+      method: "get",
+      headers: {
+        "User-Agent": "SeanCarroll/3.0",
+      },
     })
-    .then(function (data) {
-      showMusicLyrics(data);
-      return data;
-    });
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        showMusicLyrics(data);
+        return data;
+      });
+  }
+
+  SearchLyr.addEventListener("click", () =>
+  lyrics1.value = {
+    if
+  
+    callUrl({ artistName: artistName.value, song: lyrics1.value })
+}
+  );
+
   function showMusicLyrics(data) {
     const { lyrics } = data;
     lyrs.innerHTML = `<pre>${lyrics}</pre>`;
-
-    // const page = document.createElement("p");
-    // page.textContent = data.lyrics;
-    // lyrs.appendChild(page);
-    // console.log(page);
   }
 });
-
-// `<pre>${data.lyrics}</pre>`

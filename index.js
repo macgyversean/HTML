@@ -3,44 +3,30 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Content Loaded");
 
-  const SearchB = document.getElementById("searchB");
-  const artistIdInput = document.getElementById("artistId");
   const list = document.getElementById("myList");
-  console.log(list);
-  artistIdInput.addEventListener("input", updateValue);
-  SearchB.addEventListener("click", getReleases);
+
   const root = document.getElementById("root");
   console.log(root);
   let songsForList = [];
   // Get the input field
 
-  function updateValue(e) {
+  const updateValue = (e) => {
     artistIdInput.textContent = e.target.value;
-  }
-
-  async function getReleases() {
+  };
+  const artistIdInput = document.getElementById("artistId");
+  artistIdInput.addEventListener("input", updateValue);
+  const getReleases = () => {
     const artistName = artistIdInput.textContent;
     const token = "xdPpthHSMJYFKilnwZRtgwTRmciDXFvIqatyltto";
     const url = `https://api.discogs.com/database/search?token=${token}&artist=${artistName}`;
-    fetch(url, {
-      method: "get",
-      headers: {
-        "User-Agent": "SeanCarroll/3.0",
-      },
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        const { results } = data;
-        console.log({ results });
-        const list = document.createElement("ul");
 
-        console.log(root);
-        // Append it to the #root
-        root.appendChild(list);
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const { results, thumb } = data;
         results.map(function (result) {
-          const { title, genre } = result;
+          const { title, thumb } = result;
           const albumTitle = document.createElement("p");
           albumTitle.textContent = title;
           const listItem = document.createElement("li");
@@ -60,8 +46,37 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         });
       });
-  }
-  function showPlayList(songs) {
+
+    // fetchWithThen();
+    // async function fetchwithAwait() {
+    //   const response = await fetch(apiUrl);
+    //   const data = await response.json();
+
+    //   return Data;
+
+    // fetch(url, {
+    //   method: "get",
+    //   headers: {
+    //     "User-Agent": "SeanCarroll/3.0",
+    //   },
+    // })
+    //   .then(function (response) {
+    //     return response.json();
+    //   })
+    //   .then(function (data) {
+    //     const { results } = data;
+    //     console.log({ results });
+    //     // const list = document.createElement("ul");
+
+    console.log(root);
+    // Append it to the #root
+    root.appendChild(list);
+  };
+
+  const SearchB = document.getElementById("searchB");
+  SearchB.addEventListener("click", getReleases);
+
+  const showPlayList = (songs) => {
     const PlaylistElement = document.querySelector("#playlist");
 
     if (!PlaylistElement) {
@@ -82,5 +97,5 @@ document.addEventListener("DOMContentLoaded", function () {
       songParagraphEl.textContent = song;
       PlaylistElement.appendChild(songParagraphEl);
     }
-  }
+  };
 });

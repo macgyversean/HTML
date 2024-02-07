@@ -65,6 +65,9 @@ body {
   height: 100%;
   background: linear-gradient(281deg, #9fbfc8 40%, #d0aed6 75%);
 }
+.Foryou {
+  display: flex;
+}
 nav {
   display: inline;
   justify-content: space-evenly;
@@ -72,16 +75,25 @@ nav {
 footer li {
   display: inline;
 }
+
 .searchBar {
   position: absolute;
   top: 49px;
-  left: 40vw;
+  left: -2vw;
   width: 100%;
   background-color: transparent;
   padding: 10px;
   z-index: 100;
+  text-align: center;
 }
-
+.mylist {
+  display: flex;
+  text-align: left;
+}
+.playlist {
+  display: flex;
+  text-align: right;
+}
 .eagle {
   display: flex;
   width: 100%;
@@ -89,7 +101,7 @@ footer li {
 .johnjones {
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: left;
 }
 .MobileSection {
   width: 100%;
@@ -131,12 +143,14 @@ footer li {
   margin-top: 10px;
   aspect-ratio: 4/3;
 }
+
 .wrapper {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin: auto;
   max-width: 1200px;
   width: 100%;
+  align-content: flex-end;
 }
 .wrapper h1,
 .wrapper h2 {

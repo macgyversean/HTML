@@ -25,20 +25,6 @@
     </nav>
     </header>
     <main>
-    <script>
-      console.log("page Loaded");
-      const emailForm = document.querySelector("#Email");
-      const responseParagraph = document.querySelector("#response");
-      emailForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        alert("It was clicked.");
-        const newForm = event.target;
-        console.log(newForm);
-        const myInput = newForm.querySelector("input");
-        console.log(myInput.value);
-        responseParagraph.innerHTML = myInput.value;
-      });
-    </script>
     </form>
     </main>
     <ul class="tabs">

@@ -41,10 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   SearchLyr.addEventListener("click", () =>
   lyrics1.value = {
-    if
+    if lyrics1.value != 
   
-    callUrl({ artistName: artistName.value, song: lyrics1.value })
 }
+    callUrl({ artistName: artistName.value, song: lyrics1.value })
   );
 
   function showMusicLyrics(data) {

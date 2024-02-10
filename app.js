@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function LyricsFnc(e) {
     lyrics1.textContent = e.target.value;
   }
-  console.log(LyricsFnc);
   function ArtistName(e) {
     artistName.textContent = e.target.value;
   }
@@ -21,8 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
   lyrs.appendChild(hello);
 
   function callUrl({ artistName, song }) {
-    console.log({ artistName });
-    console.log({ song });
     const url = `https://api.lyrics.ovh/v1/${artistName}/${song}`;
     fetch(url, {
       method: "get",
@@ -39,14 +36,15 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
-  SearchLyr.addEventListener("click", () =>
-  lyrics1.value = {
-    if lyrics1.value != 
-  
-}
-    callUrl({ artistName: artistName.value, song: lyrics1.value })
+  SearchLyr.addEventListener(
+    "click",
+    () =>
+      (lyrics1.value = {
+        if:
+          lyrics1.value !=
+          callUrl({ artistName: artistName.value, song: lyrics1.value }),
+      })
   );
-
   function showMusicLyrics(data) {
     const { lyrics } = data;
     lyrs.innerHTML = `<pre>${lyrics}</pre>`;

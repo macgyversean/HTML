@@ -32,19 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then(function (data) {
         showMusicLyrics(data);
-        return data;
+        return data.lyrics;
       });
   }
 
-  SearchLyr.addEventListener(
-    "click",
-    () =>
-      (lyrics1.value = {
-        if:
-          lyrics1.value !=
-          callUrl({ artistName: artistName.value, song: lyrics1.value }),
-      })
+  SearchLyr.addEventListener("click", () =>
+    callUrl({ artistName: artistName.value, song: lyrics1.value })
   );
+
   function showMusicLyrics(data) {
     const { lyrics } = data;
     lyrs.innerHTML = `<pre>${lyrics}</pre>`;

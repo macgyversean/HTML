@@ -38,7 +38,14 @@ main {
   border-radius: 22px;
   background-color: transparent;
 }
-
+.sidenav {
+  background-color: #120e11;
+  float: left;
+  left: 0rem;
+  top: 23rem;
+  border-radius: 46px;
+  margin-bottom: auto;
+}
 .selectors {
   flex-direction: row;
   max-height: 85px;
@@ -58,6 +65,9 @@ body {
   height: 100%;
   background: linear-gradient(281deg, #9fbfc8 40%, #d0aed6 75%);
 }
+.Foryou {
+  display: flex;
+}
 nav {
   display: inline;
   justify-content: space-evenly;
@@ -65,16 +75,25 @@ nav {
 footer li {
   display: inline;
 }
+
 .searchBar {
-  position: fixed;
-  top: 32px;
-  left: 40vw;
+  position: absolute;
+  top: 49px;
+  left: -2vw;
   width: 100%;
   background-color: transparent;
   padding: 10px;
   z-index: 100;
+  text-align: center;
 }
-
+.mylist {
+  display: flex;
+  text-align: left;
+}
+.playlist {
+  display: flex;
+  text-align: right;
+}
 .eagle {
   display: flex;
   width: 100%;
@@ -82,7 +101,7 @@ footer li {
 .johnjones {
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: left;
 }
 .MobileSection {
   width: 100%;
@@ -102,7 +121,7 @@ footer li {
   background-color: #5453a8;
 }
 .onboard_info {
-  margin: 2rem 0;
+  margin: 4rem 0;
   font-size: 1.4rem;
   text-align: center;
   opacity: 1;
@@ -125,12 +144,26 @@ footer li {
   aspect-ratio: 4/3;
 }
 
+.wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: auto;
+  max-width: 1200px;
+  width: 100%;
+  align-content: flex-end;
+}
+.wrapper h1,
+.wrapper h2 {
+  width: 100%;
+}
+
+/* 
 button:hover {
   color: #82ffc9;
   box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6),
     0 0 9px 3px rgba(27, 253, 156, 0.2);
-}
-
+} */
+/* 
 button:before {
   content: "";
   position: absolute;
@@ -146,11 +179,11 @@ button:before {
     rgba(27, 253, 156, 0.1) 60%,
     transparent 100%
   );
-}
+/* } 
 
 button:hover:before {
   transform: translateX(15em);
-}
+} */
 
 @media screen and (min-width: 320px) {
   main {

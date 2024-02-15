@@ -3,89 +3,99 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Content Loaded");
 
-  const SearchB = document.getElementById("searchB");
-  const artistIdInput = document.getElementById("artistId");
   const list = document.getElementById("myList");
-  artistIdInput.addEventListener("input", updateValue);
-  SearchB.addEventListener("click", getReleases);
 
+  const root = document.getElementById("root");
+  console.log(root);
+  let songsForList = [];
   // Get the input field
 
-  //   const input = document.getElementById("SearchB");
-  //   // Execute a function when the user presses a key on the keyboard
-  //     input.addEventListener("keypress", function (event) {
-  //       // If the user presses the "Enter" key on the keyboard
-  //       if (event.key === "Enter") {
-  //         // Cancel the default action, if needed
-  //         event.preventDefault();
-  //         // Trigger the button element with a click
-  //         document.getElementById("myBtn").click();
-  //       }
-  //     });
-
-  function updateValue(e) {
+  const updateValue = (e) => {
     artistIdInput.textContent = e.target.value;
-  }
-
-  async function getReleases() {
+  };
+  const artistIdInput = document.getElementById("artistId");
+  artistIdInput.addEventListener("input", updateValue);
+  const getReleases = () => {
     const artistName = artistIdInput.textContent;
     const token = "xdPpthHSMJYFKilnwZRtgwTRmciDXFvIqatyltto";
     const url = `https://api.discogs.com/database/search?token=${token}&artist=${artistName}`;
-    await fetch(url, {
-      method: "get",
-      headers: {
-        "User-Agent": "SeanCarroll/3.0",
-      },
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        const { results } = data;
-        console.log({ results });
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const { results, thumb } = data;
         results.map(function (result) {
-          const { title, genre } = result;
+          const { title, thumb } = result;
           const albumTitle = document.createElement("p");
           albumTitle.textContent = title;
-          list.appendChild(albumTitle);
-
-          const albumGenre = document.createElement("p");
-          albumGenre.textContent = genre;
-          list.appendChild(albumGenre);
+          const listItem = document.createElement("li");
+          //create button
+          const addToPlayListBTN = document.createElement("button");
+          addToPlayListBTN.type = "button";
+          addToPlayListBTN.textContent = "Add To Playlist";
+          // Add the release title to the list item
+          listItem.textContent = `${result.title} -  ${result.year}`;
+          // Append the lisi item to the list
+          listItem.appendChild(addToPlayListBTN);
+          list.appendChild(listItem);
+          addToPlayListBTN.addEventListener("click", function (e) {
+            songsForList = [...songsForList, result.title];
+            console.log(songsForList);
+            showPlayList(songsForList);
+          });
         });
       });
-  }
 
-  //   function doSearch(SearchQuery) {
-  //     get(`${apiUrl}&${SearchQuery}`).then(function (data) {
-  //       console.log("Search Results", data);
-  //     });
-  //   }
+    // fetchWithThen();
+    // async function fetchwithAwait() {
+    //   const response = await fetch(apiUrl);
+    //   const data = await response.json();
 
-  //   function showArtist(artistName) {
-  //     const page = document.createElement("p");
-  //     page.textContent = artistName;
-  //     root.appendChild(page);
-  //   }
-  // get(url).then(function (data) {
-  //   const { releases } = data;
-  //   console.groupCollapsed(data);
-  //   releases.map(function (release) {
-  //     const { title } = release;
-  //     const paragraph = document.createElement("p");
-  //     paragraph.textContent = title;
-  //     root.appendChild(paragraph);
-  //   });
-  // });
+    //   return Data;
 
-  // add an IIFE imediately invoked function expression
-  //   (function () {
-  //     get(`https://api.discogs.com/artists/${artistIdInput.textContent}`).then(
-  //       function (data) {
-  //         const { name, releases_url } = data;
-  //         showArtist(name);
-  //         getReleases(releases_url);
-  //       }
-  //     );
-  //   })();
+    // fetch(url, {
+    //   method: "get",
+    //   headers: {
+    //     "User-Agent": "SeanCarroll/3.0",
+    //   },
+    // })
+    //   .then(function (response) {
+    //     return response.json();
+    //   })
+    //   .then(function (data) {
+    //     const { results } = data;
+    //     console.log({ results });
+    //     // const list = document.createElement("ul");
+
+    console.log(root);
+    // Append it to the #root
+    root.appendChild(list);
+  };
+
+  const SearchB = document.getElementById("searchB");
+  SearchB.addEventListener("click", getReleases);
+
+  const showPlayList = (songs) => {
+    const PlaylistElement = document.querySelector("#playlist");
+
+    if (!PlaylistElement) {
+      const newPlaylistElement = document.createElement("div");
+      newPlaylistElement.id = "playlist";
+      root.appendChild(newPlaylistElement);
+      songs.map(function (song) {
+        const songParagraphEl = document.createElement("p");
+        songParagraphEl.textContent = song;
+        newPlaylistElement.appendChild(songParagraphEl);
+      });
+    } else {
+      let song = songsForList[0];
+      if (songsForList.length >= 1) {
+        song = songsForList[songsForList.length - 1];
+      }
+      const songParagraphEl = document.createElement("p");
+      songParagraphEl.textContent = song;
+      PlaylistElement.appendChild(songParagraphEl);
+    }
+  };
 });

@@ -8,7 +8,7 @@ url = URL.create(
     username="",
     password="",
     host="localhost",
-    database="musicApi",
+    database="musicapi",
     port=5432
 )
 

@@ -90,22 +90,13 @@ async def update_id(id: int, name: str = None):
         return {"message": "User ID not found"}
     
 
-@app.delete("/delete/user")
-async def delete_User(username: str):
-    users = session.query(User).filter(User.id == id).first()
-    if users is not None:
-        session.delete(users)
+@app.delete('/ceos/{id}/delete')
+async def remove_ceo(id: int):
+    ceo = session.query(User).filter(User.id == id).first()
+    if ceo is not None:
+        session.delete(ceo)
         session.commit()
-        return {"course added": users.name}
+        return {"Deleted CEO": ceo.username}
     else:
         return {"message": "User ID not found"}
 
-# @app.delete('/delete/{id}/delete')
-# async def remove_student(id: int, name: str):
-#     new_students = session.query(student).filter(student.id == id).first()
-#     if new_students is not None:
-#         session.delete(new_students)
-#         session.commit()
-#         return {"Deleted student": new_students.name}
-#     else:
-#         return {"message": "User ID not found"}

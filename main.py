@@ -89,14 +89,35 @@ async def update_id(id: int, name: str = None):
     else:
         return {"message": "User ID not found"}
     
-
-@app.delete('/ceos/{id}/delete')
-async def remove_ceo(id: int):
-    ceo = session.query(User).filter(User.id == id).first()
-    if ceo is not None:
-        session.delete(ceo)
+@app.put('/playlist/{id}/update')
+async def update_playlist(id: int, name: str = None):
+    new_playlist = session.query(Playlists).filter(Playlists.id == id).first()
+    if new_playlist is not None:
+        if name:
+            new_playlist.name = name
+        session.add(new_playlist)
         session.commit()
-        return {"Deleted CEO": ceo.username}
+        return {"Updated playlist": new_playlist.name}
+    else:
+        return {"message": "playlist ID not found"}
+
+@app.delete('/user/{id}/delete')
+async def remove_user(id: int):
+    user = session.query(User).filter(User.id == id).first()
+    if user is not None:
+        session.delete(user)
+        session.commit()
+        return {"Deleted user": user.username}
     else:
         return {"message": "User ID not found"}
+    
+@app.delete('/playlist/{id}/delete')
+async def remove_user(id: int):
+    playlist = session.query(Playlists).filter(Playlists.id == id).first()
+    if playlist is not None:
+        session.delete(playlist)
+        session.commit()
+        return {"Deleted playlist": playlist.name}
+    else:
+        return {"message": "Playlist ID not found"}
 

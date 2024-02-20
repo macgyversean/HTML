@@ -43,5 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function showMusicLyrics(data) {
     const { lyrics } = data;
     lyrs.innerHTML = `<pre>${lyrics}</pre>`;
+    console.log(lyrs);
   }
+  console.log(lyrics1);
+  console.log(SearchLyr);
+  console.log(hello);
 });

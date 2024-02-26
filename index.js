@@ -47,27 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       });
 
-    // fetchWithThen();
-    // async function fetchwithAwait() {
-    //   const response = await fetch(apiUrl);
-    //   const data = await response.json();
-
-    //   return Data;
-
-    // fetch(url, {
-    //   method: "get",
-    //   headers: {
-    //     "User-Agent": "SeanCarroll/3.0",
-    //   },
-    // })
-    //   .then(function (response) {
-    //     return response.json();
-    //   })
-    //   .then(function (data) {
-    //     const { results } = data;
-    //     console.log({ results });
-    //     // const list = document.createElement("ul");
-
     console.log(root);
     // Append it to the #root
     root.appendChild(list);
